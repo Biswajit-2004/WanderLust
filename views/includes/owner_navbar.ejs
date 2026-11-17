@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <div class="container-fluid">
+    
+    <!-- Brand Logo -->
+    <a class="navbar-brand d-flex align-items-center gap-2" href="/host/listings">
+      <i class="fa-regular fa-compass"></i>
+      <span>Wanderlust <small class="text-muted fs-6 fw-normal">Host</small></span>
+    </a>
+
+    <!-- Mobile Toggler -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#hostNavbarNav"
+      aria-controls="hostNavbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="hostNavbarNav">
+      
+      <!-- Central Host Links -->
+      <div class="navbar-nav mx-auto align-items-center gap-4">
+        
+        <a class="nav-link d-flex align-items-center gap-2" href="/listings/new">
+          <i class="fa-solid fa-circle-plus fs-5"></i>
+          <span>Add New Listing</span>
+        </a>
+
+        <a class="nav-link d-flex align-items-center gap-2" href="/listings">
+          <i class="fa-solid fa-list-ul fs-5"></i>
+          <span>All Listings</span>
+        </a>
+
+        <a class="nav-link d-flex align-items-center gap-2" href="/listings/bookings">
+          <i class="fa-regular fa-calendar-check fs-5"></i>
+          <span>Bookings</span>
+        </a>
+
+      </div>
+
+      <!-- Right User / Auth Controls -->
+      <div class="navbar-nav ms-auto align-items-center gap-3">
+        
+        <!-- Link back to Customer View -->
+        <a class="nav-link text-secondary d-flex align-items-center gap-1" href="/customer/explore">
+          <i class="fa-solid fa-arrow-rotate-left"></i>
+          <span>Switch to Traveling</span>
+        </a>
+
+        <% if (!currUser) { %>
+          <a class="nav-link" href="/signup"><b>Sign up</b></a>
+          <a class="nav-link" href="/login"><b>Log in</b></a>
+        <% } %>
+
+        <% if (currUser) { %>
+          <a class="nav-link" href="/logout"><b>Log out</b></a>
+        <% } %>
+
+      </div>
+
+    </div>
+  </div>
+</nav>

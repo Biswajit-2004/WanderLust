@@ -1,0 +1,16 @@
+<% layout("/layouts/customer_boilerplate") %>
+<div class="container mt-3">
+    <h3>My Trips (Instant/Confirmed Bookings)</h3>
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3 gap-4">
+        <% for(let trip of trips) { %>
+            <div class="card col listing-card mb-3">
+                <img src="<%= trip.listing.image.url %>" class="card-img-top show-img " alt="listing_image">
+                <div class="card-body">
+                    <h5 class="card-title"><%= trip.listing.title %></h5>
+                    <p class="card-text">Price: ₹<%= trip.listing.price %> / night</p>
+                    <span class="badge bg-success">Confirmed Trip</span>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</div>

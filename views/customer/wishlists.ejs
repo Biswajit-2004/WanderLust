@@ -1,0 +1,16 @@
+<% layout("/layouts/customer_boilerplate") %>
+<div class="container mt-3">
+    <h3>My Wishlists (Scheduled/Pending Bookings)</h3>
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3 gap-4">
+        <% for(let item of wishlists) { %>
+            <div class="card col listing-card mb-3">
+                <img src="<%= item.listing.image.url %>" class="card-img-top" alt="listing_image" style="height: 20rem; width: 100% !important; object-fit: cover !important;">
+                <div class="card-body">
+                    <h5 class="card-title"><%= item.listing.title %></h5>
+                    <p class="card-text">Price: ₹<%= item.listing.price %> / night</p>
+                    <span class="badge bg-warning text-dark">Pending / Scheduled</span>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</div>

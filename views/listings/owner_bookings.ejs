@@ -1,0 +1,62 @@
+<% layout("/layouts/boilerplate") %> 
+
+<div class="container mt-3">
+    <h3>Received Bookings</h3>
+    <p class="text-muted">List of all bookings received for your listings</p>
+    
+    <% if(bookings && bookings.length > 0) { %>
+        <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-3 mt-2">
+            <% for(let booking of bookings) { %>
+                <div class="col">
+                    <div class="card h-100 shadow-sm border-0">
+                        
+                        <img src="<%= booking.listing.image.url %>" class="card-img-top" alt="listing_image" style="height: 140px; object-fit: cover;">
+                        
+                        <div class="card-body p-2_5" style="font-size: 0.9rem;">
+                           
+                            <h6 class="card-title fw-bold text-truncate mb-2" title="<%= booking.listing.title %>">
+                                <%= booking.listing.title %>
+                            </h6>
+                            
+                            
+                            <p class="card-text mb-1 text-muted text-truncate">
+                                <strong>Guest:</strong> <%= booking.guestName %>
+                            </p>
+
+                           
+                            <p class="card-text mb-1 text-muted">
+                                <strong>Type:</strong> <span class="text-capitalize"><%= booking.bookingType %></span>
+                            </p>
+                            
+                            <% if(booking.checkIn && booking.checkOut) { %>
+                                <p class="card-text mb-1 text-muted" style="font-size: 0.8rem;">
+                                    <strong>Dates:</strong> <br>
+                                    <%= new Date(booking.checkIn).toLocaleDateString() %> - <%= new Date(booking.checkOut).toLocaleDateString() %>
+                                </p>
+                            <% } %>
+
+                            <p class="card-text mb-2 fw-semibold text-dark">
+                                Price: ₹<%= booking.listing.price %> / night
+                            </p>
+
+                            <div>
+                                <% if(booking.status === 'confirmed') { %>
+                                    <span class="badge bg-success w-100 py-1">Confirmed</span>
+                                <% } else if(booking.status === 'pending') { %>
+                                    <span class="badge bg-warning text-dark w-100 py-1">Pending</span>
+                                <% } else { %>
+                                    <span class="badge bg-danger w-100 py-1">Cancelled</span>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    <% } else { %>
+        
+        <div class="alert alert-info mt-4" role="alert">
+            No bookings have been received for your listing yet!
+        </div>
+    <% } %>
+</div>

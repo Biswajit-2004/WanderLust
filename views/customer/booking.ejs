@@ -1,0 +1,30 @@
+<% layout("/layouts/customer_boilerplate") -%>
+<div class="row mt-3">
+    <div class="col-6 offset-3">
+        <h3 class="mb-3">✨ Book Your Stay</h3>
+        <form action="/customer/home/<%= listing._id %>/<%= typeof actionType !== 'undefined' && actionType === 'schedule' ? 'schedule' : 'booknow' %>"  method="POST">
+            
+            <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" name="name" class="form-control" value="<%= currUser ? currUser.username : '' %>" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" name="email" class="form-control" value="<%= currUser ? currUser.email : '' %>" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="checkIn" class="form-label">Check-In Date</label>
+                <input type="date" name="checkIn" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="checkOut" class="form-label">Check-Out Date</label>
+                <input type="date" name="checkOut" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-dark w-100 py-2 rounded-pill">Confirm Booking</button>
+        </form>
+    </div>
+</div>
