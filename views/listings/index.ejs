@@ -1,49 +1,85 @@
 <% layout("/layouts/boilerplate") -%>
 
 <body>
-  <!-- <h3 class="mt-3 mb-3">All Listings</h3> -->
-  <!-- <form method="GET" action="/listings/new">
-      <button>create New listings</button>
-    </form> -->
 
-    <style>
-      #filters{
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        flex-wrap: wrap;
-      }
+  <style>
+    
+#filters .filter .btn,
+#filters .filter .btn-outline-success {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #fe424d;
+  --bs-btn-border-color: #fe424d;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #fe424d;
+  --bs-btn-hover-border-color: #fe424d;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #fe424d;
+  --bs-btn-active-border-color: #fe424d;
+  --bs-btn-focus-shadow-rgb: 254, 66, 77;
 
-      .filter{
-        text-align: center;
-        margin-right:3rem;
-        margin-top: 2rem;
-        opacity: 1;
-      }
+  color: #fff !important;
+  background: #fe424d !important;
+  border: 1.5px solid #fe424d !important;
+  border-radius: 999px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(254, 66, 77, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-      .filter:hover{
-        opacity: 0.7;
-        cursor: pointer;
-      }
+#filters .filter .btn:hover,
+#filters .filter .btn:focus,
+#filters .filter .btn:active {
+  color: #fff !important;
+  background: #fe424d !important;
+  border-color: #fe424d !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(254, 66, 77, 0.4);
+}
 
-      .filter p {
-        font-size: 0.8rem;
-      }
-      .filter{
-        margin-bottom: 2rem;
-        margin-right: 120px;
-      }
-    </style>
+#filters .filter a {
+  text-decoration: none;
+}
 
-    <div id="filters">
-      <div class="filter">
-        <a href="/customer/switch-role">
-          <button class="btn btn-outline-success">Become a customer</button>
-        </a>
-      </div>
-    </div>
 
-  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+#hostNavbarNav .navbar-nav.mx-auto .nav-link {
+  border-radius: 999px;
+  background-color: transparent;
+  box-shadow: 0 0 0 0 rgba(254, 66, 77, 0);
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+#hostNavbarNav .navbar-nav.mx-auto .nav-link:hover,
+#hostNavbarNav .navbar-nav.mx-auto .nav-link:focus {
+  background-color: rgba(254, 66, 77, 0.1);
+  box-shadow: 0 0 0 0.45rem rgba(254, 66, 77, 0.1);
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+
+#hostNavbarNav .navbar-nav.mx-auto .nav-link i {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  margin: -0.575rem;         
+  border-radius: 50%;
+  margin-right: 0.15rem;
+  background-color: transparent;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+#hostNavbarNav .navbar-nav.mx-auto .nav-link:hover i,
+#hostNavbarNav .navbar-nav.mx-auto .nav-link:focus i {
+  background-color: #fe424d;
+  color: #fff;
+}
+  </style>
+
+
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-4">
     <% for(let listings of Alllistings) { %>
     <a href="/listings/<%= listings._id %>" class="listing_link">
       <div class="card col" style="width: 20rem">

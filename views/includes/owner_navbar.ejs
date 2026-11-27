@@ -45,11 +45,13 @@
       <!-- Right User / Auth Controls -->
       <div class="navbar-nav ms-auto align-items-center gap-3">
         
-        <!-- Link back to Customer View -->
-        <a class="nav-link text-secondary d-flex align-items-center gap-1" href="/customer/explore">
-          <i class="fa-solid fa-arrow-rotate-left"></i>
-          <span>Switch to Traveling</span>
+           <div id="filters">
+      <div class="filter">
+        <a href="/customer/switch-role">
+          <button class="btn btn-outline-success">Become a customer</button>
         </a>
+      </div>
+    </div>
 
         <% if (!currUser) { %>
           <a class="nav-link" href="/signup"><b>Sign up</b></a>

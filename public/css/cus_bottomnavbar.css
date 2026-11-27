@@ -1,53 +1,182 @@
-#filters{
-        display: flex;
-        flex-wrap: wrap;
-      }
 
-      .filter{
-        text-align: center;
-        margin-right:3rem;
-        margin-top: 2rem;
-        opacity: 1;
-      }
+#filters {
+  display: flex !important;
+  flex-wrap: nowrap;                    
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 1.6rem;                          
+  margin: 2rem 0 1rem !important;
+}
 
-      .filter:hover{
-        opacity: 0.7;
-        cursor: pointer;
-      }
 
-      .filter p {
-        font-size: 0.8rem;
-      }
+#filters a {
+  text-decoration: none !important;
+  color: inherit !important;
+}
 
-      #filters a {
-        text-decoration: none !important;
-        color: inherit !important;
-      }
+#filters .filter {
+  text-align: center;
+  margin: 0 !important;
+  opacity: 1;
+  white-space: nowrap;
+}
 
-      .switch{
-        margin-left:auto;
-        margin-top: 2rem; 
-      }
+#filters .filter:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+#filters .filter p {
+  font-size: 0.8rem;
+  margin: 0.25rem 0 0 !important;
+}
+
+#filters > .tax-toggle,
+#filters > .switch {
+  margin: 0 !important;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+#filters .switch {
+  display: flex;
+  align-items: center;
+}
+
+#filters .switch a {
+  display: flex;
+  align-items: center;
+}
+
+#filters .switch .btn {
+  margin: 0 !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+@media (max-width: 1199px) {
+  #filters {
+    flex-wrap: wrap;
+    gap: 1rem 1.6rem;
+  }
+}
 
       .tax-info{
         display: none;
       }
 
-       #filters .tax-toggle {
-          border: 1px solid rgba(0,0,0,0.175) ;
-          border-radius: 1rem ;
-          height: 3rem ;
-          width: 15rem;
-          align-items: center;
-          display: flex;
-          justify-content: center;
-          margin-top: 1.5rem;
-          margin-left: 2rem;
-        }
+      
+#filters .tax-toggle {
+  height: 44px !important;
+  width: auto !important;
+  padding: 0 1.1rem !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  background-color: #fff;
+  border: 1.5px solid #e3e3e3 !important;
+  border-radius: 999px !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06) !important;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
 
-        #filters .tax-toggle:hover,
+
+#filters .tax-toggle:hover,
 #filters .tax-toggle:focus-within {
-  border-color: #86b7fe !important;
-  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  border-color: #fe424d !important;
+  background-color: #fff7f7;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06) !important;
+}
+
+
+#filters .tax-toggle .form-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  min-height: 0;
+}
+
+#filters .tax-toggle .form-check-label {
+  order: 1;
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #444;
   cursor: pointer;
+  user-select: none;
+}
+
+#filters .tax-toggle:hover .form-check-label {
+  color: #fe424d;
+}
+
+
+#filters .tax-toggle .form-check-input {
+  order: 2;
+  float: none;
+  margin: 0;
+  width: 2.6em;
+  height: 1.4em;
+  cursor: pointer;
+  background-color: #e3e3e3;
+  border: none;
+  /* grey knob, also stays grey when focused (removes the blue knob) */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23ffffff'/%3e%3c/svg%3e");
+  box-shadow: none;
+  transition: background-color 0.2s ease, background-position 0.15s ease-in-out;
+}
+
+#filters .tax-toggle .form-check-input:focus {
+  border: none;
+  box-shadow: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23ffffff'/%3e%3c/svg%3e");
+}
+
+/* ON state: red track, white knob */
+#filters .tax-toggle .form-check-input:checked {
+  background-color: #fe424d;
+  border: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23ffffff'/%3e%3c/svg%3e");
+}
+
+
+#filters .switch .btn,
+#filters .switch .btn-outline-success {
+  /* Bootstrap 5.3 reads these variables for the green colour */
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #fe424d;
+  --bs-btn-border-color: #fe424d;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #fe424d;
+  --bs-btn-hover-border-color: #fe424d;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #fe424d;
+  --bs-btn-active-border-color: #fe424d;
+  --bs-btn-focus-shadow-rgb: 254, 66, 77;
+
+  /* Direct colours as a backup for older Bootstrap versions */
+  color: #fff !important;
+  background: #fe424d !important;
+  border: 1.5px solid #fe424d !important;
+  border-radius: 999px;
+  height: 44px;
+  padding: 0 1.6rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(254, 66, 77, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#filters .switch .btn:hover,
+#filters .switch .btn:focus,
+#filters .switch .btn:active {
+  color: #fff !important;
+  background: #fe424d !important;
+  border-color: #fe424d !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(254, 66, 77, 0.4);
 }
